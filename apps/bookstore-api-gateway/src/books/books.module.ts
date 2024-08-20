@@ -2,12 +2,13 @@ import { Module } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { BooksController } from './books.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { BOOKS_CLIENT } from './constants';
 
 @Module({
   imports: [
     ClientsModule.register([
       {
-        name: 'BOOKS_CLIENT',
+        name: BOOKS_CLIENT,
         transport: Transport.TCP,
         options:{port: 3002}
       }
